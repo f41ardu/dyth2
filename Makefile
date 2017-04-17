@@ -4,10 +4,10 @@ OBJ = dyth.o gtheta.o c.o myeb.o bragg.o
 
 CFLAGS = -r8R -O4 -funroll-loops
 
-L = -lf2c -lm -lc
+L = -lm -lc
 
 dyth: $(OBJ)
-	g77 -o dyth $(OBJ) $(LDFLAGS)
+	g77 -o dyth $(OBJ) $(L)
 
 clean: 
 	rm -f dyth $(OBJ) $(L)
