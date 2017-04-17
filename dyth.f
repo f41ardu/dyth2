@@ -9,6 +9,7 @@ c     (C) 1993,94,95,96,97,98,2017 Th. Rautenstrauch All Rights Reserved
 c
 c     Fortran V1.0 31/01.96
 c     g77 / OpenBSD
+c     add phase calculation
 c
       implicit none
 c      
@@ -38,7 +39,7 @@ c
       logical laue,bragg,par,sigma
       open(77,file='2.dat')
 c
-107   format(5f16.8)
+107   format(7f16.8)
 c      
       pi = 4.e0*atan(1.e0)  
       nhphase=1
@@ -172,12 +173,20 @@ c
          if(bragg) then
              call braggit(x1,x2,c1,c2,d0,dh)
          endif
+c 
+         r1 = real(dh)
+         r2 = aimag(dh)
+         phaseB = atan2(r1,r2) !+pi/2.
 c         
+         r2 = real(d0)
+         r1 = aimag(d0)
+         phaseL = atan2(r1,r2) ! +pi/2.
+c            
          IBH = CABS(DH)**2
          IB0 = CABS(D0)**2
 c
          write(77,107) real(dpp + theta*180./pi),y,dpp*3600, 
-     .   real(IBH/abs(b)),real(IB0/abs(b))
+     .   real(IBH/abs(b)),real(IB0/abs(b)),real(phaseB),real(phaseL)
 c         
 10       continue
          stop
