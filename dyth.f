@@ -160,10 +160,10 @@ c
          phi1 = 2.0*pi*k0*d01/gamma0 
          phi2 = 2.0*pi*k0*d02/gamma0 
 c         
-c         call me_cexp(c1,(0.e0,-1.e0)*phi1*t1)
-c         call me_cexp(c2,(0.e0,-1.e0)*phi2*t1)
-         c1=cexp((0.e0,-1.e0)*phi1*t1)
-	 c2=cexp((0.e0,-1.e0)*phi2*t1)
+         call me_cexp(c1,(0.e0,-1.e0)*phi1*t1)
+         call me_cexp(c2,(0.e0,-1.e0)*phi2*t1)
+c         c1=cexp((0.e0,-1.e0)*phi1*t1)
+c	 c2=cexp((0.e0,-1.e0)*phi2*t1)
 c
          if(laue) then
             call laueit(x1,x2,c1,c2,d0,dh)
