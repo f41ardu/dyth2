@@ -64,7 +64,7 @@ c
 c
       write(6,*) ' Dicke in mm :'
       read(5,*) t1
-      t1 = t1 * 1.e-3 !mm -> m
+      t1 = t1 * 1.e-4 !mm -> m ! not -3 
       write(6,*) 'mue*t :',mue*t1 ! so what m
       write(6,*) '1/mue', 1/mue 
       write(6,*) 'I/I0 :',exp(-mue*t1)
