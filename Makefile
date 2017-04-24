@@ -1,6 +1,6 @@
 all: dyth
 
-OBJ = dyth.o gtheta.o c.o myeb.o bragg.o 
+OBJ = dyth_neu.o gtheta.o c.o myeb.o bragg.o 
 
 CFLAGS = -r8R -O4 -funroll-loops
 
